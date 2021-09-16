@@ -90,7 +90,7 @@ router.get('/blogpost/id:', withAuth, async (req, res) => {
       include: [
         {
           model: Comment,
-          attributes: [User],
+          include: [User],
         },
         {
           model: User,
@@ -104,6 +104,7 @@ router.get('/blogpost/id:', withAuth, async (req, res) => {
     res.render('post', {
       ...blogPost,
       logged_in: req.session.logged_in,
+      is_current_logged_in_user_author: (req.session.user_id === postData.user_id)
     });
 
   } catch (err) {

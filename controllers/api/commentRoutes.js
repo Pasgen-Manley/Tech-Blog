@@ -23,7 +23,7 @@ router.delete('/:id', withAuth, async (req, res) => {
         user_id: req.session.user_id,
       }
     });
-    if (!postData) {
+    if (!commentData) {
       res.status(404).json({ message: 'No Comment found!' });
       return;
     }
