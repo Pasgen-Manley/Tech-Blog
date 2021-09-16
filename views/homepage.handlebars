@@ -1,0 +1,22 @@
+<div class="row">
+  <div class="col-auto">
+    <h2>Blog Posts</h2>
+  </div>
+</div>
+<div class="row mt-4">
+  {{#if posts.length}}
+  <div class="col-md-6 project-list">
+    {{#each posts as |blog|}}
+    <div class="row mb-2">
+      <div class="col-md-8">
+        <h3><a href="/blog/{{post.id}}">{{post.title}}</a></h3>
+      </div>
+    </div>
+    {{/each}}
+  </div>
+  {{else}}
+  <div>
+    <h2> No blogs yet!</h2>
+  </div>
+  {{/if}}
+</div>
