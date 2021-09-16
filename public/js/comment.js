@@ -1,4 +1,4 @@
-const addComment = async (event) => {
+const addCommentHandler = async (event) => {
   event.preventDefault();
   const commentContent = document.querySelector('#comment-text').value.trim();
 
@@ -28,7 +28,6 @@ const addComment = async (event) => {
 };
 
 
-
 document
   .querySelector('.new-comment-form')
-  .addEventListener('submit', addComment);
+  .addEventListener('submit', addCommentHandler);
