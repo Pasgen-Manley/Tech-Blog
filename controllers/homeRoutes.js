@@ -3,7 +3,7 @@ const { User, Post, Comment } = require('../models');
 const withAuth = require('../utils/auth');
 
 // prevent non logged in user from viewing the homepage
-router.get('/', withAuth, async (req, res) => {
+router.get('/', async (req, res) => {
   try {
     const blogData = await Post.findAll({
       include: [
@@ -84,9 +84,9 @@ router.get('/dashboard', withAuth, async (req, res) => {
   }
 });
 
-router.get('/blogpost/id:', withAuth, async (req, res) => {
+router.get('/blogpost/:id', async (req, res) => {
   try {
-    const postData = await Post.findByPk(req.param.id, {
+    const postData = await Post.findByPk(req.params.id, {
       include: [
         {
           model: Comment,
@@ -100,7 +100,7 @@ router.get('/blogpost/id:', withAuth, async (req, res) => {
     });
 
     const blogPost = postData.get({ plain: true });
-
+    console.log(blogPost);
     res.render('post', {
       ...blogPost,
       logged_in: req.session.logged_in,

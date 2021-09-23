@@ -2,14 +2,14 @@ const editBlogHandler = async (event) => {
   event.preventDefault();
   const title = document.querySelector('#blog-title').value.trim();
   const content = document.querySelector('#blog-content').value.trim();
-  const blog_id = window.location.toString().split('/')[
+  const post_id = window.location.toString().split('/')[
     window.location.toString().split('/').length - 1
   ];
   if (title && content) 
   {
-    const response = await fetch(`/api/blogpost/${blog_id}`, {
+    const response = await fetch(`/api/blogpost/${post_id}`, {
       method: 'PUT',
-      body: JSON.stringify({ title, content, blog_id }),
+      body: JSON.stringify({ title, content, post_id }),
       headers: {
         'Content-Type': 'application/json',
       },
@@ -32,13 +32,13 @@ document
 
   const deleteBlogHandler = async (event) => {
     event.preventDefault();
-    const blog_id = window.location.toString().split('/')[
+    const post_id = window.location.toString().split('/')[
       window.location.toString().split('/').length - 1
     ];
     {
-      const response = await fetch(`/api/blogpost/${blog_id}`, {
+      const response = await fetch(`/api/blogpost/${post_id}`, {
         method: 'DELETE',
-        body: JSON.stringify({ blog_id }),
+        body: JSON.stringify({ post_id }),
         headers: {
           'Content-Type': 'application/json',
         },
