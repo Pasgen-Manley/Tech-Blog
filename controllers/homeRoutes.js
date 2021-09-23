@@ -47,7 +47,7 @@ router.get('/register', (req, res) => {
   res.render('register');
 });
 
-router.get('/newpost', withAuth, async (req, res) => {
+router.get('/blogpost', withAuth, async (req, res) => {
   try {
     // Find the logged in user based on the session ID
     const userData = await User.findByPk(req.session.user_id, {
@@ -57,7 +57,7 @@ router.get('/newpost', withAuth, async (req, res) => {
 
     const user = userData.get({ plain: true });
 
-    res.render('newpost', {
+    res.render('blogpost', {
       ...user,
       logged_in: true
     });
