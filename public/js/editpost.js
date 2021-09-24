@@ -19,7 +19,7 @@ const editBlogHandler = async (event) => {
       alert('Blog Post Edited!')
       document.location.replace('/');
     } else {
-      alert('Failed to edit Post');
+      alert('Failed to edit Post. Please make sure you have made a change to your post!');
     }
   }
 };
