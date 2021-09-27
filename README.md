@@ -12,7 +12,7 @@ A simple blog posting web application built using MVC principles. This applicati
 
 ## Usage
 Open the application via the deployed Heroku Link below.
-LINK:
+LINK: https://pure-plains-74715.herokuapp.com/login
 
 ## License
 This application is covered under the MIT license.
